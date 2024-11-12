@@ -211,7 +211,7 @@ impl Gilrs {
         is_blocking: bool,
         blocking_timeout: Option<Duration>,
     ) -> Option<Event> {
-        if let Some(msg) = self.rx.try_recv().ok() {
+        if let Ok(msg) = self.rx.try_recv() {
             match msg {
                 FfMessage::EffectCompleted { event } => return Some(event),
             }

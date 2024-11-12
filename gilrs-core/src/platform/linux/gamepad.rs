@@ -719,8 +719,7 @@ impl Gamepad {
     }
 
     fn is_gamepad(&self) -> bool {
-        // TODO: improve it (for example check for buttons in range)
-        !self.buttons.is_empty() && self.axes.len() >= 2
+        true
     }
 
     fn find_buttons(key_bits: &[u8], only_gamepad_btns: bool) -> Vec<EvCode> {

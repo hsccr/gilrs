@@ -68,6 +68,15 @@ impl Event {
         }
     }
 
+    /// Creates new event with current time.
+    pub fn new_with_time(id: GamepadId, event: EventType, time: SystemTime) -> Self {
+        Event {
+            id,
+            event,
+            time,
+        }
+    }
+
     /// Returns `Event` with `EventType::Dropped`.
     pub fn drop(mut self) -> Event {
         self.event = EventType::Dropped;

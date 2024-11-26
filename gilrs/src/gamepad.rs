@@ -405,6 +405,10 @@ impl Gilrs {
                 data.state
                     .update_axis(nec, AxisData::new(value, counter, event.time));
             }
+            AxisRepeated(_, value, nec) => {
+                data.state
+                    .update_axis(nec, AxisData::new(value, counter, event.time));
+            }
             Disconnected | Connected | Dropped | ForceFeedbackEffectCompleted => (),
         }
     }
